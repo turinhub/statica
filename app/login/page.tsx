@@ -10,22 +10,34 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
 import { Layers, Mail, Lock } from 'lucide-react'
+import { loginWithPassword } from '@/lib/auth'
+import { toast } from 'sonner'
 
 export default function LoginPage() {
   const router = useRouter()
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleRegisterClick = () => {
+    toast.info('系统暂不开放注册，请联系管理员开通账户')
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError('')
 
-    // Simulate login
-    setTimeout(() => {
-      setIsLoading(false)
+    try {
+      await loginWithPassword(username, password)
       router.push('/dashboard')
-    }, 1000)
+    } catch (err) {
+      setError('登录失败，请检查用户名和密码')
+      console.error('Login error:', err)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -55,16 +67,22 @@ export default function LoginPage() {
 
           <Card className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="bg-destructive/10 text-destructive px-4 py-3 rounded-md text-sm">
+                  {error}
+                </div>
+              )}
+
               <div className="space-y-2">
-                <Label htmlFor="email">邮箱地址</Label>
+                <Label htmlFor="username">用户名</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    id="username"
+                    type="text"
+                    placeholder="请输入用户名"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     className="pl-10"
                     required
                   />
@@ -99,8 +117,14 @@ export default function LoginPage() {
 
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">还没有账户？</span>{' '}
-              <Button variant="link" size="sm" className="h-auto p-0" asChild>
-                <Link href="/signup">立即注册</Link>
+              <Button
+                variant="link"
+                size="sm"
+                className="h-auto p-0"
+                type="button"
+                onClick={handleRegisterClick}
+              >
+                立即注册
               </Button>
             </div>
           </Card>
