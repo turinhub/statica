@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import type React from "react"
+import type React from 'react'
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -11,24 +11,24 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Plus } from "lucide-react"
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Plus } from 'lucide-react'
 
 export function NewDeploymentDialog() {
   const [open, setOpen] = useState(false)
   const [formData, setFormData] = useState({
-    name: "",
+    name: '',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // TODO: 实现创建部署逻辑
-    console.log("创建部署:", formData)
+    console.log('创建部署:', formData)
     setOpen(false)
     // 重置表单
-    setFormData({ name: "" })
+    setFormData({ name: '' })
   }
 
   return (
@@ -55,7 +55,9 @@ export function NewDeploymentDialog() {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
             />
-            <p className="text-xs text-muted-foreground">用于标识您的网站项目，系统将自动生成访问地址 /h/[UUID]</p>
+            <p className="text-xs text-muted-foreground">
+              用于标识您的网站项目，系统将自动生成访问地址 /h/[UUID]
+            </p>
           </div>
 
           {/* 提交按钮 */}

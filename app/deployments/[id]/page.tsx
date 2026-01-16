@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import {
   ArrowLeft,
   Globe,
@@ -12,72 +12,68 @@ import {
   TrendingUp,
   FileCode,
   Database,
-} from "lucide-react"
-import { Layers } from "lucide-react"
+} from 'lucide-react'
+import { Layers } from 'lucide-react'
 
 // Mock data for a single deployment
 const deployment = {
-  id: "8JfpicWAW",
-  name: "my-portfolio",
-  domain: "/h/8JfpicWAW",
-  status: "running",
-  environment: "Production",
-  createdAt: "2024-01-10 14:30:00",
-  lastUpdated: "2024-01-16 15:20:00",
-  lastDeployed: "7m 24s ago",
-  visits: "2,456",
-  uptime: "99.9%",
-  commitHash: "a3b4c5d",
+  id: '8JfpicWAW',
+  name: 'my-portfolio',
+  domain: '/h/8JfpicWAW',
+  status: 'running',
+  environment: 'Production',
+  createdAt: '2024-01-10 14:30:00',
+  lastUpdated: '2024-01-16 15:20:00',
+  lastDeployed: '7m 24s ago',
+  visits: '2,456',
+  uptime: '99.9%',
+  commitHash: 'a3b4c5d',
   fileCount: 248,
-  totalSize: "4.2 MB",
+  totalSize: '4.2 MB',
 }
 
 const recentActivities = [
   {
     id: 1,
-    type: "deployment",
-    message: "成功部署到生产环境",
-    timestamp: "7分钟前",
-    status: "success",
+    type: 'deployment',
+    message: '成功部署到生产环境',
+    timestamp: '7分钟前',
+    status: 'success',
   },
   {
     id: 2,
-    type: "build",
-    message: "构建完成",
-    timestamp: "8分钟前",
-    status: "success",
+    type: 'build',
+    message: '构建完成',
+    timestamp: '8分钟前',
+    status: 'success',
   },
   {
     id: 3,
-    type: "commit",
-    message: "推送了新的提交 a3b4c5d",
-    timestamp: "10分钟前",
-    status: "info",
+    type: 'commit',
+    message: '推送了新的提交 a3b4c5d',
+    timestamp: '10分钟前',
+    status: 'info',
   },
   {
     id: 4,
-    type: "deployment",
-    message: "开始部署",
-    timestamp: "15分钟前",
-    status: "info",
+    type: 'deployment',
+    message: '开始部署',
+    timestamp: '15分钟前',
+    status: 'info',
   },
 ]
 
 const trafficData = [
-  { date: "01/10", visits: 420 },
-  { date: "01/11", visits: 380 },
-  { date: "01/12", visits: 560 },
-  { date: "01/13", visits: 490 },
-  { date: "01/14", visits: 650 },
-  { date: "01/15", visits: 580 },
-  { date: "01/16", visits: 720 },
+  { date: '01/10', visits: 420 },
+  { date: '01/11', visits: 380 },
+  { date: '01/12', visits: 560 },
+  { date: '01/13', visits: 490 },
+  { date: '01/14', visits: 650 },
+  { date: '01/15', visits: 580 },
+  { date: '01/16', visits: 720 },
 ]
 
-export default function DeploymentDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export default function DeploymentDetailPage({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -97,9 +93,12 @@ export default function DeploymentDetailPage({
                 <h1 className="text-xl font-semibold text-foreground">{deployment.name}</h1>
                 <p className="text-xs text-muted-foreground">{deployment.id}</p>
               </div>
-              <Badge variant={deployment.status === "running" ? "default" : "secondary"} className="gap-1">
+              <Badge
+                variant={deployment.status === 'running' ? 'default' : 'secondary'}
+                className="gap-1"
+              >
                 <Activity className="h-3 w-3" />
-                {deployment.status === "running" ? "运行中" : "暂停中"}
+                {deployment.status === 'running' ? '运行中' : '暂停中'}
               </Badge>
             </div>
             <div className="flex items-center gap-2">
@@ -216,10 +215,13 @@ export default function DeploymentDetailPage({
               <h3 className="text-lg font-semibold text-foreground mb-4">最近活动</h3>
               <div className="space-y-4">
                 {recentActivities.map((activity) => (
-                  <div key={activity.id} className="flex items-start gap-3 py-2 border-b border-border last:border-0">
+                  <div
+                    key={activity.id}
+                    className="flex items-start gap-3 py-2 border-b border-border last:border-0"
+                  >
                     <div
                       className={`mt-0.5 h-2 w-2 rounded-full ${
-                        activity.status === "success" ? "bg-success" : "bg-muted-foreground"
+                        activity.status === 'success' ? 'bg-success' : 'bg-muted-foreground'
                       }`}
                     />
                     <div className="flex-1">

@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Layers, Zap, Shield, BarChart3, ArrowRight } from "lucide-react"
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Layers, Zap, Shield, BarChart3, ArrowRight } from 'lucide-react'
 
 export default function LandingPage() {
   return (
@@ -60,8 +60,12 @@ export default function LandingPage() {
       {/* Features Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">为什么选择 Statica</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">专注于提供简单、高效的静态网站托管服务</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            为什么选择 Statica
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            专注于提供简单、高效的静态网站托管服务
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -70,7 +74,9 @@ export default function LandingPage() {
               <Zap className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-semibold text-card-foreground mb-2">极速部署</h3>
-            <p className="text-muted-foreground">上传即部署，无需等待构建。基于 OSS 的分布式架构，确保全球访问速度。</p>
+            <p className="text-muted-foreground">
+              上传即部署，无需等待构建。基于 OSS 的分布式架构，确保全球访问速度。
+            </p>
           </Card>
 
           <Card className="p-6 bg-card hover:shadow-lg transition-shadow">
@@ -78,7 +84,9 @@ export default function LandingPage() {
               <Shield className="h-6 w-6 text-accent" />
             </div>
             <h3 className="text-xl font-semibold text-card-foreground mb-2">安全可靠</h3>
-            <p className="text-muted-foreground">企业级安全防护，自动备份，99.9% 的在线率保证，让您的网站始终在线。</p>
+            <p className="text-muted-foreground">
+              企业级安全防护，自动备份，99.9% 的在线率保证，让您的网站始终在线。
+            </p>
           </Card>
 
           <Card className="p-6 bg-card hover:shadow-lg transition-shadow">
@@ -86,7 +94,9 @@ export default function LandingPage() {
               <BarChart3 className="h-6 w-6 text-success" />
             </div>
             <h3 className="text-xl font-semibold text-card-foreground mb-2">实时监控</h3>
-            <p className="text-muted-foreground">详细的访问统计和性能监控，帮助您了解网站运行状态和用户行为。</p>
+            <p className="text-muted-foreground">
+              详细的访问统计和性能监控，帮助您了解网站运行状态和用户行为。
+            </p>
           </Card>
         </div>
       </section>
@@ -101,9 +111,13 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { step: "01", title: "创建部署", description: "在控制台点击新建部署，输入网站名称" },
-              { step: "02", title: "上传文件", description: "上传您的静态文件（HTML、CSS、JS 等）" },
-              { step: "03", title: "立即访问", description: "获得唯一访问地址，您的网站已经上线" },
+              { step: '01', title: '创建部署', description: '在控制台点击新建部署，输入网站名称' },
+              {
+                step: '02',
+                title: '上传文件',
+                description: '上传您的静态文件（HTML、CSS、JS 等）',
+              },
+              { step: '03', title: '立即访问', description: '获得唯一访问地址，您的网站已经上线' },
             ].map((item) => (
               <div key={item.step} className="text-center">
                 <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">

@@ -1,0 +1,17 @@
+# Ignore artifacts:
+.next/
+dist/
+build/
+coverage/
+node_modules/
+
+# Ignore shadcn ui components
+components/ui/
+
+# Ignore public assets
+public/
+
+# Ignore package manager files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

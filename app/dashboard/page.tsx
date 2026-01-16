@@ -1,8 +1,8 @@
-import { DeploymentsList } from "@/components/deployments-list"
-import { NewDeploymentDialog } from "@/components/new-deployment-dialog"
-import { Layers } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { DeploymentsList } from '@/components/deployments-list'
+import { NewDeploymentDialog } from '@/components/new-deployment-dialog'
+import { Layers } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function DashboardPage() {
   return (

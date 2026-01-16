@@ -1,57 +1,62 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Globe, Calendar, Activity, ExternalLink, MoreVertical, TrendingUp } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import Link from 'next/link'
+import { Card } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Globe, Calendar, Activity, ExternalLink, MoreVertical, TrendingUp } from 'lucide-react'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 // Mock data
 const deployments = [
   {
-    id: "8JfpicWAW",
-    name: "my-portfolio",
-    domain: "/h/8JfpicWAW",
-    status: "running",
-    environment: "Production",
-    createdAt: "2024-01-10",
-    lastDeployed: "7m 24s ago",
-    visits: "2.4k",
-    uptime: "99.9%",
+    id: '8JfpicWAW',
+    name: 'my-portfolio',
+    domain: '/h/8JfpicWAW',
+    status: 'running',
+    environment: 'Production',
+    createdAt: '2024-01-10',
+    lastDeployed: '7m 24s ago',
+    visits: '2.4k',
+    uptime: '99.9%',
   },
   {
-    id: "BCoTKPg4n",
-    name: "company-website",
-    domain: "/h/BCoTKPg4n",
-    status: "running",
-    environment: "Production",
-    createdAt: "2024-01-08",
-    lastDeployed: "5m 2s ago",
-    visits: "12.8k",
-    uptime: "100%",
+    id: 'BCoTKPg4n',
+    name: 'company-website',
+    domain: '/h/BCoTKPg4n',
+    status: 'running',
+    environment: 'Production',
+    createdAt: '2024-01-08',
+    lastDeployed: '5m 2s ago',
+    visits: '12.8k',
+    uptime: '100%',
   },
   {
-    id: "Li3VpKTef",
-    name: "blog-site",
-    domain: "/h/Li3VpKTef",
-    status: "paused",
-    environment: "Preview",
-    createdAt: "2024-01-09",
-    lastDeployed: "6m 19s ago",
-    visits: "856",
-    uptime: "98.7%",
+    id: 'Li3VpKTef',
+    name: 'blog-site',
+    domain: '/h/Li3VpKTef',
+    status: 'paused',
+    environment: 'Preview',
+    createdAt: '2024-01-09',
+    lastDeployed: '6m 19s ago',
+    visits: '856',
+    uptime: '98.7%',
   },
   {
-    id: "3mskh6Dve",
-    name: "landing-page",
-    domain: "/h/3mskh6Dve",
-    status: "running",
-    environment: "Production",
-    createdAt: "2024-01-05",
-    lastDeployed: "4m 46s ago",
-    visits: "5.2k",
-    uptime: "99.8%",
+    id: '3mskh6Dve',
+    name: 'landing-page',
+    domain: '/h/3mskh6Dve',
+    status: 'running',
+    environment: 'Production',
+    createdAt: '2024-01-05',
+    lastDeployed: '4m 46s ago',
+    visits: '5.2k',
+    uptime: '99.8%',
   },
 ]
 
@@ -92,9 +97,12 @@ export function DeploymentsList() {
 
             {/* Status Badge */}
             <div className="mb-4">
-              <Badge variant={deployment.status === "running" ? "default" : "secondary"} className="gap-1">
+              <Badge
+                variant={deployment.status === 'running' ? 'default' : 'secondary'}
+                className="gap-1"
+              >
                 <Activity className="h-3 w-3" />
-                {deployment.status === "running" ? "运行中" : "暂停中"}
+                {deployment.status === 'running' ? '运行中' : '暂停中'}
               </Badge>
               <Badge variant="outline" className="ml-2">
                 {deployment.environment}
@@ -104,7 +112,9 @@ export function DeploymentsList() {
             {/* Domain */}
             <div className="mb-4 flex items-center gap-2 rounded-md bg-muted p-2">
               <Globe className="h-3.5 w-3.5 text-muted-foreground" />
-              <span className="text-xs font-mono text-muted-foreground truncate">{deployment.domain}</span>
+              <span className="text-xs font-mono text-muted-foreground truncate">
+                {deployment.domain}
+              </span>
               <ExternalLink className="ml-auto h-3.5 w-3.5 text-muted-foreground flex-shrink-0" />
             </div>
 
