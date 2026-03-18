@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { User, LogOut, Settings } from 'lucide-react'
 import { toast } from 'sonner'
 import { useAuth } from '@/components/auth-provider'
-import type { AuthUser } from 'tale-js-sdk'
+import type { AuthUser } from '@turinhub/tale-js-sdk'
 
 interface UserMenuProps {
   user: AuthUser

@@ -8,7 +8,7 @@ import {
   registerWithSms,
   type LoginResponse,
   type SmsLoginResponse,
-} from 'tale-js-sdk'
+} from '@turinhub/tale-js-sdk'
 
 const COOKIE_NAME = 'auth_token'
 const COOKIE_USER = 'auth_user'

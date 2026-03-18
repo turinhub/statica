@@ -2,8 +2,10 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Layers, Zap, Shield, BarChart3, ArrowRight } from 'lucide-react'
+import { isAuthenticated } from '@/lib/auth'
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const isLoggedIn = await isAuthenticated()
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -17,9 +19,11 @@ export default function LandingPage() {
               <span className="text-xl font-semibold text-foreground">Statica</span>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="ghost" asChild>
-                <Link href="/login">登录</Link>
-              </Button>
+              {!isLoggedIn && (
+                <Button variant="ghost" asChild>
+                  <Link href="/login">登录</Link>
+                </Button>
+              )}
               <Button asChild>
                 <Link href="/dashboard">控制台</Link>
               </Button>
